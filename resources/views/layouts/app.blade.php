@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @yield('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -40,6 +41,9 @@
                             <a href="{{ url('/profile') }}" class="nav-link"> my info</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                        </li>
                         @endauth
                         <li>
                             <a href="{{url('/rated')}}" class="nav-link">rated recipes</a>

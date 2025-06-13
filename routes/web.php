@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RatingController;
@@ -11,6 +12,8 @@ use App\Models\Recipe;
 use App\Models\User;
 use App\Notifications\NewRecipeNotification;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Auth;
 
 Route::prefix('/')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -79,6 +82,7 @@ Route::get('/mailing' , function(){
 
 Auth::routes();
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 /*
 Everything is set up and functioning as expected, except for the user notification feature. I haven't figured out why it's not working yet.
